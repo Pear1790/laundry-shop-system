@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b78c9">
+<title>ติดตามสถานะผ้า</title>
+<link rel="stylesheet" href="customer.css">
+</head>
+<body>
+<header class="h"><div class="wrap"><h1>📍 ติดตามสถานะผ้า</h1><p>อัปเดตอัตโนมัติทุก 15 วินาที</p></div></header>
+<nav class="cnav"><a href="/">🏠 เลือกบทบาท</a><a href="order.html" data-p="order">🧺 สั่งซัก</a><a href="track.html" data-p="track">📍 ติดตามสถานะ</a><a href="account.html" data-p="account">👤 บัญชี</a></nav>
+<div class="wrap" id="root"></div>
+<script src="track.js"></script>
+<script>document.querySelectorAll('.cnav a').forEach(a=>a.classList.toggle('on',a.dataset.p==='track'))</script>
+</body>
+</html>

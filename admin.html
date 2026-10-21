@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b78c9">
+<meta name="robots" content="noindex">
+<title>เจ้าของร้าน — ระบบจัดการร้านซักผ้า</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+<header class="top">
+  <div class="logo" id="shopName">🫧 ร้านซักอบรีด</div>
+  <nav id="nav" hidden>
+    <a href="#/machines" data-t="machines">🧺 เครื่อง</a>
+    <a href="#/orders" data-t="orders">📋 ออเดอร์</a>
+    <a href="#/customers" data-t="customers">👥 ลูกค้า</a>
+    <a href="#/report" data-t="report">📊 สรุป</a>
+    <a href="#/cost" data-t="cost">💰 ต้นทุน</a>
+    <a href="#/settings" data-t="settings">⚙️ ตั้งค่า</a>
+    <a href="#/board" data-t="board">📺 จอหน้าร้าน</a>
+    <a href="/" id="switch" title="กลับไปเลือกบทบาท">🏠 เปลี่ยนบทบาท</a>
+    <a href="#" id="logout">🚪 ออกจากระบบ</a>
+  </nav>
+</header>
+<div id="alerts"></div>
+<main id="app"></main>
+<dialog id="dlg"></dialog>
+<div id="toast" class="toast" hidden></div>
+<script src="admin.js"></script>
+</body>
+</html>

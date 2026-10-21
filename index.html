@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b78c9">
+<title>เข้าใช้งาน — ระบบร้านซักอบรีด</title>
+<link rel="stylesheet" href="customer.css">
+<style>
+  body{padding-bottom:30px}
+  .roles{display:grid;gap:14px;margin:18px 0}
+  .role{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px;transition:.15s}
+  .role:hover{border-color:var(--blue);transform:translateY(-2px)}
+  .role .ic{font-size:44px;line-height:1}
+  .role h2{margin:6px 0 2px;font-size:22px}
+  .role ul{margin:8px 0 0;padding-left:20px;color:var(--mut);font-size:15px}
+  .role .go{display:inline-block;margin-top:10px;background:var(--blue);color:#fff;padding:8px 18px;border-radius:999px;font-weight:800}
+  .role.owner .go{background:#14263a}
+  .badge{display:inline-block;background:#d8f3e3;color:#0b5a2d;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700;margin-left:6px}
+</style>
+</head>
+<body>
+<header class="h"><div class="wrap"><h1 id="shop">🫧 ร้านซักอบรีด</h1><p>เลือกว่าคุณจะเข้าใช้ในฐานะใคร</p></div></header>
+<div class="wrap">
+  <div class="roles">
+    <a class="role" href="order.html" id="rc">
+      <div class="ic">👤</div><h2>ฉันเป็นลูกค้า <span id="bc"></span></h2>
+      <ul><li>เลือกรายการและสั่งซักอบรีดออนไลน์</li><li>ติดตามสถานะผ้าและดูรูปผ้าของตัวเอง</li><li>สะสมแต้ม ดูประวัติ รับแจ้งเตือน LINE</li></ul>
+      <span class="go">เข้าใช้งานลูกค้า →</span></a>
+    <a class="role owner" href="admin" id="ro">
+      <div class="ic">🏪</div><h2>ฉันเป็นเจ้าของร้าน <span id="bo"></span></h2>
+      <ul><li>ต้องล็อกอินด้วยบัญชีเจ้าของร้าน</li><li>จัดการเครื่องซัก ออเดอร์ รายได้ ต้นทุน และราคา</li><li>ดูรายชื่อลูกค้าสมาชิกทั้งหมด</li></ul>
+      <span class="go">เข้าสู่ระบบเจ้าของร้าน →</span></a>
+  </div>
+  <p class="hint" style="text-align:center">สองบทบาทแยกกันโดยสิ้นเชิง: ลูกค้าเข้าหน้าเจ้าของร้านไม่ได้ และเจ้าของร้านก็ไม่เห็นรหัสผ่านของลูกค้า</p>
+</div>
+<script>
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  fetch("/api/catalog").then(r => r.json()).then(j => (document.getElementById("shop").textContent = "🫧 " + j.settings.shop)).catch(() => {});
+  fetch("/api/me").then(r => r.json()).then(j => { if (j.user) document.getElementById("bc").innerHTML = `<span class="badge">ล็อกอินอยู่: ${esc(j.user.name)}</span>`; }).catch(() => {});
+  fetch("/api/admin/status").then(r => r.json()).then(j => { if (j.loggedIn) document.getElementById("bo").innerHTML = `<span class="badge">ล็อกอินอยู่</span>`; }).catch(() => {});
+</script>
+</body>
+</html>

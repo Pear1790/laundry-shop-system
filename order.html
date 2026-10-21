@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b78c9">
+<title>สั่งซักอบรีดออนไลน์</title>
+<link rel="stylesheet" href="customer.css">
+</head>
+<body>
+<header class="h"><div class="wrap"><div id="acct" style="float:right;font-size:14px"></div><h1 id="shop">🫧 สั่งซักอบรีด</h1><p id="sub">เลือกรายการ → ใส่จำนวน → ราคาคิดให้ทันที</p></div></header>
+<nav class="cnav"><a href="/">🏠 เลือกบทบาท</a><a href="order.html" data-p="order">🧺 สั่งซัก</a><a href="track.html" data-p="track">📍 ติดตามสถานะ</a><a href="account.html" data-p="account">👤 บัญชี</a></nav>
+<div class="wrap" id="root"><p class="hint">กำลังโหลดรายการราคา…</p></div>
+<div class="bar" id="bar" hidden><div class="in"><div class="tot"><b id="tTotal">฿0</b><span id="tCount"></span></div><button class="btn" id="next">ถัดไป →</button></div></div>
+<script src="order.js"></script>
+<script>document.querySelectorAll('.cnav a').forEach(a=>a.classList.toggle('on',a.dataset.p==='order'))</script>
+</body>
+</html>

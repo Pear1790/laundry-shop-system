@@ -2,6 +2,8 @@
 
 A full-stack order and tracking system for a neighbourhood laundry shop. Customers place and track orders online; the owner manages orders, pricing, delivery zones, and customers from an admin dashboard.
 
+![Screenshot](screenshot.png)
+
 ## Features
 - **Customer side:** sign up / log in, place orders (per piece, by weight, or by machine load), choose home pickup and delivery, track order status
 - **Admin dashboard:** order queue and status updates, delivery slips, configurable pricing rules, discount codes, loyalty points, delivery zones, CSV export
